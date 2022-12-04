@@ -1,8 +1,9 @@
+include("executor.jl")
 
-open("datasheets/datasheet-3.txt") do file
+function day03(lines)
     priorities = 0
 
-    for line in readlines(file)
+    for line in lines
         secondCompartment = SubString(line, div(lastindex(line), 2) + 1)
         firstCompartment = SubString(line, 1, div(lastindex(line), 2))
         sharedItem = intersect!(collect(firstCompartment), collect(secondCompartment))[1]
@@ -10,5 +11,7 @@ open("datasheets/datasheet-3.txt") do file
         priorities += Int(sharedItem) - shift
     end
 
-    println(priorities)
+    return priorities
 end
+
+execute(3, day03)
