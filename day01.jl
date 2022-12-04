@@ -1,9 +1,10 @@
+include("executor.jl")
 
-open("datasheets/datasheet-1.txt") do file
+function day01(lines)
     highestAmount = 0
     amount = 0
 
-    for line in readlines(file)
+    for line in lines
         if isempty(line)
             if amount > highestAmount
                 highestAmount = amount
@@ -15,5 +16,7 @@ open("datasheets/datasheet-1.txt") do file
         end
     end
 
-    println(highestAmount)
+    return highestAmount
 end
+
+execute(1, day01)

@@ -1,9 +1,10 @@
+include("executor.jl")
 
-open("datasheets/datasheet-1.txt") do file
+function day01_2(lines)
     amount = 0
     amounts = []
 
-    for line in readlines(file)
+    for line in lines
         if isempty(line)
             push!(amounts, amount)
             amount = 0
@@ -13,5 +14,7 @@ open("datasheets/datasheet-1.txt") do file
     end
 
     sort!(amounts, rev=true)
-    println(amounts[1] + amounts[2] + amounts[3])
+    return amounts[1] + amounts[2] + amounts[3]
 end
+
+execute(1, day01_2)

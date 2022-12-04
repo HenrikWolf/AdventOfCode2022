@@ -1,10 +1,11 @@
+include("executor.jl")
 
-open("datasheets/datasheet-3.txt") do file
+function day03_2(lines)
     priorities = 0
     lineCnt = 0
     arr = []
 
-    for line in readlines(file)
+    for line in lines
         lineCnt += 1
         push!(arr, collect(line))
 
@@ -17,5 +18,7 @@ open("datasheets/datasheet-3.txt") do file
         end
     end
 
-    println(priorities)
+    return priorities
 end
+
+execute(3, day03_2)

@@ -1,9 +1,10 @@
+include("executor.jl")
 
-open("datasheets/datasheet-2.txt") do file
+function day02_2(lines)
     points = 0
     arr = []
 
-    for line in readlines(file)
+    for line in lines
         arr = split(line, " ")
 
         if arr[2] == "X"
@@ -23,5 +24,7 @@ open("datasheets/datasheet-2.txt") do file
         end      
     end
 
-    println(points)
+    return points
 end
+
+execute(2, day02_2)
