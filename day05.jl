@@ -23,6 +23,27 @@ function day05(lines)
     return result
 end
 
+## part two ##
+function day05_2(lines)
+    arrays = initArray()
+    result = ""
+
+    for i in 11:length(lines)
+        arr = split(lines[i], " ")
+        arr = map(x -> parse(Int32, x), deleteat!(arr, [1, 3, 5]))
+
+        size = length(arrays[arr[2]])
+        crates = splice!(arrays[arr[2]], (size - arr[1] + 1):size)
+        append!(arrays[arr[3]], crates)
+    end
+
+    for array in arrays
+        result *= last(array)
+    end
+
+    return result
+end
+
 function initStacks()
     stacks = Array{Stack{Char}}(undef, 9)
 
@@ -39,4 +60,20 @@ function initStacks()
     return stacks
 end
 
-execute(5, day05)
+function initArray()
+    arr = []
+
+    push!(arr, ['B', 'L', 'D', 'T', 'W', 'C', 'F', 'M'])
+    push!(arr, ['N', 'B', 'L'])
+    push!(arr, ['J', 'C', 'H', 'T', 'L', 'V'])
+    push!(arr, ['S', 'P', 'J', 'W'])
+    push!(arr, ['Z', 'S', 'C', 'F', 'T', 'L', 'R'])
+    push!(arr, ['W', 'D', 'G', 'B', 'H', 'N', 'Z'])
+    push!(arr, ['F', 'M', 'S', 'P', 'V', 'G', 'C', 'N'])
+    push!(arr, ['W', 'Q', 'R', 'J', 'F', 'V', 'C', 'Z'])
+    push!(arr, ['R', 'P', 'M', 'L', 'H'])
+
+    return arr
+end
+
+execute(5, day05_2)
