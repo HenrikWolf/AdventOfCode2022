@@ -14,3 +14,5 @@ day | time| allocation
 04-2 | 1,5 ms | 438 KiB
 05 | 1,0 ms | 378 KiB
 05-2 | 51 ms | 3,48 MiB
+06 | 1,0 ms | 678 KiB
+06-2 | 4,3 ms |2,49 MiB
